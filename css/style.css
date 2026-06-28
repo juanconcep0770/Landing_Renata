@@ -1,4 +1,6 @@
-/* Reseteo básico */
+/* =========================================
+   RESETEO Y VARIABLES BÁSICAS
+   ========================================= */
 * {
     margin: 0;
     padding: 0;
@@ -6,100 +8,219 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333;
+    /* Tipografía de sistema limpia y moderna */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #050505; /* Negro profundo para el modo oscuro */
+    color: #e0e0e0; /* Gris claro para el texto, no cansa la vista */
+    line-height: 1.6;
 }
 
 /* =========================================
    ESTRUCTURA GENERAL Y CONTENEDOR
-   Cumple la regla de ancho fijo centrado (960px - 1200px)
    ========================================= */
 .fondo-header {
-    background-color: #1a1a1a;
+    background-color: #0a0a0a;
     width: 100%;
+    border-bottom: 1px solid #00ffcc; /* Borde neón cyan */
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.15); /* Resplandor */
 }
 
 .fondo-main {
-    background-color: #f4f4f4;
     width: 100%;
+    /* Reemplazamos el color sólido por tu imagen */
+    background-image: url('../img/fondo-deskmat.jpg'); /* Tu diseño de fondo */
+    background-size: cover; /* Hace que la imagen ocupe todo el espacio */
+    background-position: center;
+    
+    /* ACÁ ESTÁ EL EFECTO DE PROFUNDIDAD */
+    background-attachment: fixed; 
+    
+    /* Opcional: un color de fondo por si la imagen tarda en cargar */
+    background-color: #050505; 
+    padding-bottom: 40px;
 }
 
 .fondo-footer {
-    background-color: #1a1a1a;
-    color: white;
+    background-color: #0a0a0a;
     width: 100%;
-    padding: 20px 0;
+    padding: 40px 0;
+    border-top: 1px solid #222;
+    text-align: center;
 }
 
 .contenedor {
-    width: 1100px; /* Ancho fijo dentro del rango permitido */
-    margin: 0 auto; /* Esto centra el div en la pantalla */
+    width: 1100px;
+    margin: 0 auto;
     padding: 20px;
+    overflow: auto; /* Clearfix para los elementos flotantes */
 }
 
 /* =========================================
-   HEADER Y NAVEGACIÓN (Basado en Clase 10)
+   HEADER Y NAVEGACIÓN
    ========================================= */
 .isologotipo {
-    max-width: 200px;
+    max-width: 180px;
     height: auto;
+    float: left; /* Mantiene el logo a la izquierda */
+    margin-top: 10px;
+}
+
+nav {
+    float: right; /* Mueve la botonera a la derecha */
+    margin-top: 25px;
 }
 
 .botonera {
-    list-style: none; /* Quitamos viñetas como dice el PDF */
-    text-align: right;
-    margin-top: 15px;
+    list-style: none;
 }
 
 .botonera li {
-    display: inline-block; /* Para barra horizontal */
-    margin-left: 20px;
+    display: inline-block;
+    margin-left: 30px;
 }
 
 .botonera a {
-    text-decoration: none; /* Quitamos subrayado */
-    color: white;
-    font-weight: bold;
-    padding: 10px 15px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Separación de letras futurista */
+    transition: all 0.3s ease; /* Suaviza el cambio de color */
 }
 
+/* Efecto hover estilo neón */
 .botonera a:hover {
-    color: #00bcd4;
+    color: #00ffcc;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8);
+}
+
+/* =========================================
+   TIPOGRAFÍA Y TÍTULOS
+   ========================================= */
+h1, h2, h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h2 {
+    color: #00ffcc; /* Color cyan principal */
+    margin-bottom: 25px;
+    font-weight: 400;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
 /* =========================================
    SECCIONES DEL MAIN
    ========================================= */
-section {
-    margin-bottom: 40px;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid #ddd;
+/* Estilo del Banner Principal (Hero) */
+.banner {
+    text-align: center;
+    padding: 80px 20px;
+    background-color: #0a0a0a;
+    border: 1px solid #00ffcc;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.1);
+    margin-top: 40px;
+    margin-bottom: 60px;
 }
 
-h2 {
-    color: #00bcd4;
-    margin-bottom: 15px;
-}
-
-h3 {
+.banner h2 {
+    font-size: 2.5rem;
+    border: none; /* Quitamos la línea de abajo para este título */
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
     margin-bottom: 10px;
+}
+
+.banner p {
+    font-size: 1.2rem;
+    color: #aaa;
+}
+
+/* Estilo para el resto de las secciones */
+section:not(.banner) {
+    margin-bottom: 50px;
+    padding: 40px;
+    background-color: #0a0a0a;
+    border: 1px solid #222;
+    border-radius: 10px;
+    transition: border-color 0.3s ease;
+}
+
+/* Pequeño efecto al pasar el mouse por las secciones */
+section:not(.banner):hover {
+    border-color: #333;
 }
 
 /* =========================================
    FOOTER Y REDES SOCIALES
    ========================================= */
+.fondo-footer p {
+    color: #666;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
 .redes-sociales {
     list-style: none;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 .redes-sociales li {
     display: inline-block;
-    margin-right: 15px;
+    margin: 0 10px;
 }
 
 .redes-sociales img {
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.redes-sociales img:hover {
+    opacity: 1;
+}
+
+.caracteristica {
+    margin-bottom: 60px;
+    background-color: rgba(10, 10, 10, 0.85); /* Fondo semitransparente para que se vea el fondo fijo */
+    border: 1px solid #222;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.img-izquierda {
+    float: left;
+    width: 45%; /* La imagen ocupa casi la mitad */
+    margin-right: 5%;
+    border-radius: 5px;
+}
+
+.texto-caracteristica {
+    float: left;
+    width: 50%; /* El texto ocupa la otra mitad */
+    margin-top: 20px;
+}
+
+/* =========================================
+   PÁGINAS EN CONSTRUCCIÓN
+   ========================================= */
+.construccion {
+    border-color: #069bff; /* Borde naranja/amarillo */
+    box-shadow: 0 0 25px rgba(255, 170, 0, 0.1);
+    margin-top: 80px; /* Lo baja un poco más al centro de la pantalla */
+    margin-bottom: 80px;
+}
+
+.construccion h2 {
+    color: #0059ff;
+    text-shadow: 0 0 15px rgba(55, 0, 255, 0.4);
 }
